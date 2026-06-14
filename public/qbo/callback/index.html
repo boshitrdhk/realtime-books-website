@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>QuickBooks Callback</title>
+    <meta charset="utf-8" />
+  </head>
+  <body style="font-family: Arial, sans-serif; padding: 40px;">
+    <h2>Connecting QuickBooks...</h2>
+    <p>Please wait. This page will send the QuickBooks authorization back to your local computer.</p>
+
+    <p>
+      If it does not continue automatically, click here:
+      <a id="manualLink" href="#">Continue to local app</a>
+    </p>
+
+    <script>
+      const localCallback = "http://localhost:8502/callback" + window.location.search;
+      document.getElementById("manualLink").href = localCallback;
+
+      setTimeout(function () {
+        window.location.href = localCallback;
+      }, 800);
+    </script>
+  </body>
+</html>
